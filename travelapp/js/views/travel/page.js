@@ -2,14 +2,14 @@ define([
   'jquery',
   'lodash',
   'backbone',
-  'text!templates/header/menu.html'
-], function($, _, Backbone, headerMenuTemplate){
-  var HeaderMenuView = Backbone.View.extend({
-    el: '.main-menu-container',
+  'text!templates/travel/page.html'
+], function($, _, Backbone, travelTemplate){
+  var TravelPage = Backbone.View.extend({
+    el: '.page',
     initialize: function () {
     },
     render: function () {
-      $(this.el).html(headerMenuTemplate);
+      $(this.el).html(travelTemplate);
       $('a[href="' + window.location.hash + '"]').addClass('active');
     },
     events: {
@@ -21,5 +21,5 @@ define([
     }
   });
 
-  return HeaderMenuView;
+  return TravelPage;
 });

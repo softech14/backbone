@@ -13,6 +13,7 @@ define([
       'backbone/:section': 'backbone',
       'backbone': 'backbone',
       'manager': 'manager',
+      'travelapp': 'travelapp',
       
       // Default - catch all
       '*actions': 'defaultAction'
@@ -22,18 +23,21 @@ define([
   var initialize = function(options){
     var appView = options.appView;
     var router = new AppRouter(options);
-    router.on('route:optimize', function () {
+    
+    router.on('route:defaultAction', function (actions) {
+        require(['views/travel/page'], function (TravelPage) {
+          var travelPage = Vm.create(appView, 'TravelPage', TravelPage);
+          travelPage.render();
+        });
+      });
+    
+    /*router.on('route:optimize', function () {
       require(['views/optimize/page'], function (OptimizePage) {
         var optimizePage = Vm.create(appView, 'OptimizePage', OptimizePage);
         optimizePage.render();
       });
     });
-    router.on('route:defaultAction', function (actions) {
-      require(['views/dashboard/page'], function (DashboardPage) {
-        var dashboardPage = Vm.create(appView, 'DashboardPage', DashboardPage);
-        dashboardPage.render();
-      });
-    });
+    
     router.on('route:modules', function () {
      require(['views/modules/page'], function (ModulePage) {
         var modulePage = Vm.create(appView, 'ModulesPage', ModulePage);
@@ -51,7 +55,13 @@ define([
         var managerPage = Vm.create(appView, 'ManagerPage', ManagerPage);
         managerPage.render();
       });
-    });
+    });*/
+    router.on('route:travel', function () {
+        require(['views/travel/page'], function (travelPage) {
+          var travelPage = new TravelPage();//Vm.create(appView, 'TravelApp', travelPage);
+          travelPage.render();
+        });
+      });
     Backbone.history.start();
   };
   return {
