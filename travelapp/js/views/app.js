@@ -1,6 +1,6 @@
 define([
   'jquery',
-  'lodash',
+  'underscore',
   'backbone',
   'vm',
   'events',
@@ -12,7 +12,7 @@ define([
       var that = this;
       $(this.el).html(layoutTemplate);
       
-      require(['views/travelapp/page'], function (TravelPage) {
+      require(['views/travel/page'], function (TravelPage) {
     	  
           var travelPage = new TravelPage();//Vm.create(that, 'TravelPage', TravelPage);
           travelPage.render();
