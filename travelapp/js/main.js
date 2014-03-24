@@ -20,6 +20,7 @@ require.config({
 
 });
 
+
 // Let's kick off the application
 
 require([

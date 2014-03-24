@@ -2,12 +2,12 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'models/users'
-], function($, _, Backbone, usersModel){
-  var usersCollection = Backbone.Collection.extend({
-    model: usersModel,
-    url: 'data/users.json',
-    fetch: function(options) {
+  'models/result'
+], function($, _, Backbone, ResultModel){
+  var ResultCollection = Backbone.Collection.extend({
+    model: ResultModel,
+    url: 'data/results.json',
+  fetch: function(options) {
       var o = $.extend(true, {}, this.url, options);
       return Backbone.Collection.prototype.fetch.call(this, o);
 	},
@@ -19,5 +19,5 @@ define([
 
   });
 
-  return usersCollection;
+  return ResultCollection;
 });

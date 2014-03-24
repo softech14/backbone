@@ -2,17 +2,14 @@ define([
   'underscore',
   'backbone'
 ], function(_, Backbone) {
-  var usersModel = Backbone.Model.extend({
+  var CityModel = Backbone.Model.extend({
     defaults: {
-      id: 1,	
-      name : 'user',
-      age : '30',
-      flag: ''
+    	name : "Hyderabad"
     },
     initialize: function(){
     }
 
   });
-  return usersModel;
+  return CityModel;
 
 });

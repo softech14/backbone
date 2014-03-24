@@ -24,12 +24,12 @@ define([
     var appView = options.appView;
     var router = new AppRouter(options);
     
-    router.on('route:defaultAction', function (actions) {
+    /*router.on('route:defaultAction', function (actions) {
         require(['views/travel/page'], function (TravelPage) {
           var travelPage = Vm.create(appView, 'TravelPage', TravelPage);
           travelPage.render();
         });
-      });
+      });*/
     
     /*router.on('route:optimize', function () {
       require(['views/optimize/page'], function (OptimizePage) {
@@ -56,12 +56,12 @@ define([
         managerPage.render();
       });
     });*/
-    router.on('route:travel', function () {
+    /*router.on('route:travel', function () {
         require(['views/travel/page'], function (travelPage) {
           var travelPage = new TravelPage();//Vm.create(appView, 'TravelApp', travelPage);
           travelPage.render();
         });
-      });
+      });*/
     Backbone.history.start();
   };
   return {
